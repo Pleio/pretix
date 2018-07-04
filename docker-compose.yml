@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - pretix-data:/data
+    links:
+      - db
+      - redis
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pretix
+      POSTGRES_USER: pretix
+
+  redis:
+    image: redis
+    restart: always
+
+volumes:
+  pretix-data:
