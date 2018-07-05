@@ -30,4 +30,4 @@ sessions=true
 
 [celery]
 backend=${PRETIX_CELERY_BACKEND}
-broker=${PRETIX_CELERY_BROCKER}
+broker=${PRETIX_CELERY_BROKER}
