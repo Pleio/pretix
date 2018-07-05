@@ -4,11 +4,15 @@ MAINTAINER Jeroen Wellner <jeroen@wllnr.nl>
 USER root
 #RUN pip3 install pretix-passbook
 
-ADD docker/pretix/pretix.cfg /etc/pretix/pretix.cfg
+ADD docker/pretix/pretix.cfg.template /pretix/pretix.cfg.template
 
-RUN chown -R pretixuser /etc/pretix/
-RUN chmod 0700 /etc/pretix/pretix.cfg
+COPY ./docker/start.sh /start.sh
+RUN chmod +x /start.sh
 
 USER pretixuser
 
 RUN cd /pretix/src && make production
+
+ENTRYPOINT []
+
+CMD ["./start.sh"]
