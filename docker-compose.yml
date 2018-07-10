@@ -22,7 +22,7 @@ services:
       PRETIX_MAIL_HOST: 172.17.0.1
       PRETIX_REDIS_LOCATION: redis://redis:6379/0
       PRETIX_CELERY_BACKEND: redis://redis:6379/1
-      PRETIX_CELERY_BROCKER: redis://redis:6379/2
+      PRETIX_CELERY_BROKER: redis://redis:6379/2
 
   db:
     image: postgres
